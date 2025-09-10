@@ -10,10 +10,10 @@ import '@/App.css'
 function Aplicacion() {
   const [carrito, setCarrito] = useState([]); // Estado centralizado del carrito
 
+
   // Función para agregar productos al carrito
   const agregarAlCarrito = (producto) => {
     setCarrito((carritoAnterior) => {
-
       const productoExistente = carritoAnterior.find(item => item.id === producto.id);
       if (productoExistente) {
 
@@ -27,12 +27,19 @@ function Aplicacion() {
     });
   };
 
+  // Función para remover productos del carrito
+  const removerDelCarrito = (idProducto) => {
+    setCarrito((carritoAnterior) =>
+      carritoAnterior.filter(producto => producto.id !== idProducto)
+    );
+  };
+
   return (
     <div className="App">
       <Encabezado carrito={carrito} />
       <Navegacion />
       <Galeria productos={productos} agregarAlCarrito={agregarAlCarrito} />
-      <Carrito carrito={carrito} />
+  <Carrito carrito={carrito} removerDelCarrito={removerDelCarrito} />
       <Pie />
     </div>
   );

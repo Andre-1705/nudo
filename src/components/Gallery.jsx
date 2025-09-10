@@ -1,7 +1,7 @@
 function Galeria({ productos, agregarAlCarrito }) {
   return (
     <section>
-      {productos.map(producto => (
+      {productos.map(producto => (   //Recorre los productos y muestra imagen y datos
         <div key={producto.id}>
           <img
             src={producto.imagen}
@@ -14,9 +14,9 @@ function Galeria({ productos, agregarAlCarrito }) {
               objectFit: 'cover'
             }}
           />
-          <p>{producto.nombre}</p>
+          <p>{producto.nombre}</p> {/* accede a propiedad nombre y precio */}
           <p>${producto.precio}</p>
-          <button onClick={() => agregarAlCarrito(producto)}>Añadir al carrito</button>
+          <button style={{ color: "green "}} onlick={() => agregarAlCarrito(producto)}>Añadir al carrito</button>
         </div>
       ))}
     </section>

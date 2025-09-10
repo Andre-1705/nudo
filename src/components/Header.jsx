@@ -46,7 +46,7 @@ function Encabezado({ carrito }) {
           Nudo
         </h1>
         <div style={{ marginLeft: 'auto' }}>
-            <span>Carrito: {totalItems}</span>
+            <span style={{ color: "blue" }}>Carrito: {totalProductos}</span>
         </div>
       </div>
 
@@ -55,4 +55,4 @@ function Encabezado({ carrito }) {
   );
 }
 
-export default Header;
+export default Encabezado;
