@@ -1,10 +1,9 @@
 
 
-function Carrito({ carrito }) { //prop cart recibe el carrito de compras
-  
-  //función para obtener el cálculo total del carrito
-  const getTotal = () => {
-    return carrito.reduce((total, item) => total + item.price * item.quantity, 0);
+function Carrito({ carrito }) {
+  // Función para obtener el cálculo total del carrito
+  const obtenerTotal = () => {
+    return carrito.reduce((total, producto) => total + (producto.precio * (producto.cantidad || 0)), 0);
   };
 
   return (
@@ -15,15 +14,15 @@ function Carrito({ carrito }) { //prop cart recibe el carrito de compras
       ) : (
         <div>
           <ul>
-            {carrito.map((item) => ( //recorre los items del carrito con map 
-              <li key={item.id}>
-                <span>{item.name}</span>
-                <span> - Cantidad: {item.quantity}</span> //muesta la cantidad de producto no me deja colocarlo en castellano
-                <span> - ${item.price * item.quantity}</span> //muestra el precio por la cantidad
+            {carrito.map((producto) => (
+              <li key={producto.id}>
+                <span>{producto.nombre}</span>
+                <span> - Cantidad: {producto.cantidad}</span>
+                <span> - ${producto.precio * producto.cantidad}</span>
               </li>
             ))}
           </ul>
-          <h3>Total: ${getTotal()}</h3>
+          <h3>Total: ${obtenerTotal()}</h3>
         </div>
       )}
     </aside>

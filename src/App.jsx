@@ -1,48 +1,41 @@
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
+import Encabezado from '@/components/Header'
+import Pie from '@/components/Footer'
 import Carrito from '@/components/Carrito'
-import Nav from '@/components/Nav'
-import Gallery from '@/components/Gallery'
-import { products } from '@/data/products'
+import Navegacion from '@/components/Nav'
+import Galeria from '@/components/Gallery'
+import { productos } from '@/data/products'
 import { useState} from 'react';
 import '@/App.css'
 
-function App() {
-  const [carrito, setCarrito] = useState( [] ); //Estado centralizado del carrito
+function Aplicacion() {
+  const [carrito, setCarrito] = useState([]); // Estado centralizado del carrito
 
-  //función para agregar productos al carrito en donde prevCarrito es el estado anterior del carrito.. es el reseteo
-  const agregarAlCarrito = (producto) => { setCarrito((prevCarrito) => {const carritoActualizado = prevCarrito.find(item => item.id === producto.id);
+  // Función para agregar productos al carrito
+  const agregarAlCarrito = (producto) => {
+    setCarrito((carritoAnterior) => {
 
-  if (carritoActualizado) {
+      const productoExistente = carritoAnterior.find(item => item.id === producto.id);
+      if (productoExistente) {
 
-    return prevCarrito.map(item => item.id === producto.id //si el id del producto es igual al id del item
-  ? {...item, quantity: item.quantity + 1} //entonces devuelve la cantidad aumentada en más 1
-  : item); //Si el producto ya está en el carrito, aumenta la cantidad
+        return carritoAnterior.map(item => item.id === producto.id
+          ? { ...item, cantidad: item.cantidad + 1 }
+          : item
+        );
+      } else {
+        return [...carritoAnterior, { ...producto, cantidad: 1 }];
+      }
+    });
+  };
 
-} else  {
-  return [...prevCarrito, { ...producto, quantity: 1}];
-}
-});
-};
-  return( <div className = "App">
-        <Header />
-          {/* Otros componentes etc. */}
-
-      <Nav />
-        {/* */}
-
-
-  <Gallery productos={products} agregarAlCarrito={agregarAlCarrito}/>
-        {/* */}
-
-
-      <Carrito carrito={carrito}/>
-      {/* */}
-
-      <Footer />
-
+  return (
+    <div className="App">
+      <Encabezado carrito={carrito} />
+      <Navegacion />
+      <Galeria productos={productos} agregarAlCarrito={agregarAlCarrito} />
+      <Carrito carrito={carrito} />
+      <Pie />
     </div>
   );
 }
 
-export default App;
+export default Aplicacion;

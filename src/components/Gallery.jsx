@@ -1,26 +1,26 @@
-function Gallery({ productos, agregarAlCarrito }) {   //agregar un producto al carrito de compras 
+function Galeria({ productos, agregarAlCarrito }) {
   return (
     <section>
-      {productos.map(item => (
-        <div key={item.id}>
+      {productos.map(producto => (
+        <div key={producto.id}>
           <img
-            src={item.image}
-            alt={item.name}
+            src={producto.imagen}
+            alt={producto.nombre}
             style={{
-              aspectRatio: item.aspectRatio,
-              maxWidth: item.maxWidth,
+              aspectRatio: producto.relacionAspecto,
+              maxWidth: producto.anchoMaximo,
               width: '100%',
               height: 'auto',
               objectFit: 'cover'
             }}
           />
-          <p>{item.name}</p>
-          <p>${item.price}</p>
-          <button onClick={() => agregarAlCarrito(item)}>Añadir al carrito</button>
+          <p>{producto.nombre}</p>
+          <p>${producto.precio}</p>
+          <button onClick={() => agregarAlCarrito(producto)}>Añadir al carrito</button>
         </div>
       ))}
     </section>
   );
 }
 
-export default Gallery;
+export default Galeria;

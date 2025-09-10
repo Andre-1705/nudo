@@ -1,8 +1,8 @@
 import logo from '../assets/nudo_transparente.png';
 
-function Header({ carrito }) { //prop carrito recibe el carrito de compras
-  //calcular el total de items en el carrito
-  const totalItems = carrito.reduce((sum, item) => sum + item.quantity, 0);//reduce para sumar las cantidades de cada item en el carrito
+function Encabezado({ carrito }) {
+  // Calcular el total de productos en el carrito
+  const totalProductos = carrito.reduce((suma, item) => suma + (item.cantidad || 0), 0);
 
   return (
     <header
