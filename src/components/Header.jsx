@@ -50,7 +50,7 @@ function Encabezado({ carrito }) {
         </div>
       </div>
 
-      <h2>Tu App de pilchas online</h2>
+      <h2>Tu App de pilchas on line</h2>
     </header>
   );
 }

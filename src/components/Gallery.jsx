@@ -16,7 +16,7 @@ function Galeria({ productos, agregarAlCarrito }) {
           />
           <p>{producto.nombre}</p> {/* accede a propiedad nombre y precio */}
           <p>${producto.precio}</p>
-          <button style={{ color: "green "}} onlick={() => agregarAlCarrito(producto)}>Añadir al carrito</button>
+          <button style={{ color: "green "}} onClick={() => agregarAlCarrito(producto)}>Añadir al carrito</button>
         </div>
       ))}
     </section>
