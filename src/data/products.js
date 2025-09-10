@@ -1,9 +1,9 @@
-import sweter from '../assets/sweter.png';
-import camiseta from '../assets/camiseta.png';
-import camiseta1 from '../assets/camiseta1.png';
-import pantalon from '../assets/pantalon.png';
-import pollera from '../assets/pollera.png';
-import vestido from '../assets/vestido.png';
+import sweter from '@/assets/sweter.png';
+import camiseta from '@/assets/camiseta.png';
+import camiseta1 from '@/assets/camiseta1.png';
+import pantalon from '@/assets/pantalon.png';
+import pollera from '@/assets/pollera.png';
+import vestido from '@/assets/vestido.png';
 
 export const products = [
   {

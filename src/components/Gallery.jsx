@@ -1,9 +1,7 @@
-import { products } from '../data/products';
-
-function Gallery() {
+function Gallery({ productos, agregarAlCarrito }) {   //agregar un producto al carrito de compras 
   return (
     <section>
-      {products.map(item => (
+      {productos.map(item => (
         <div key={item.id}>
           <img
             src={item.image}
@@ -17,6 +15,8 @@ function Gallery() {
             }}
           />
           <p>{item.name}</p>
+          <p>${item.price}</p>
+          <button onClick={() => agregarAlCarrito(item)}>Añadir al carrito</button>
         </div>
       ))}
     </section>
